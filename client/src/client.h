@@ -7,12 +7,11 @@
 #include<commons/string.h>
 #include<commons/config.h>
 #include<readline/readline.h>
-
 #include "utils.h"
 
 
-t_log* iniciar_logger(void);
-t_config* iniciar_config(void);
+t_log* iniciar_logger(char* file, char*process_name);
+t_config* iniciar_config(char* path);
 void leer_consola(t_log*);
 void paquete(int);
 void terminar_programa(int, t_log*, t_config*);

@@ -1,7 +1,12 @@
 #include "server.h"
 
 int main(void) {
+	t_log* logger;
 	logger = log_create("log.log", "Servidor", 1, LOG_LEVEL_DEBUG);
+	if (logger == NULL) {
+        printf("Error al inicializar el logger\n");
+        return 1;
+    }
 
 	int server_fd = iniciar_servidor();
 	log_info(logger, "Servidor listo para recibir al cliente");
@@ -27,6 +32,7 @@ int main(void) {
 			break;
 		}
 	}
+	free(logger);
 	return EXIT_SUCCESS;
 }
 
